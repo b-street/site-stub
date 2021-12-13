@@ -3,7 +3,7 @@ export default {
     Company: {
         fqdn: 'b-street.build',
         tld: '.build',
-        name: 'b-street.build',
+        name: 'b-street',
         title: 'b-street.build',
         slogan: 'We build helpful',
         Meta: {
