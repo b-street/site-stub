@@ -9,5 +9,6 @@ services:
     networks:
       - homedock
 
-homedock:
-  external: true
+networks:
+  homedock:
+    external: true
