@@ -40,7 +40,7 @@ export default function Home() {
                 {
                     Object.keys(SITE.PRODUCTS).map((productName) => {
                         const product = SITE.PRODUCTS[productName];
-                        return <Link href={product.page.href}>
+                        return <Link href={product.page.href} key={product.name}>
                             <Card>
                                 <h2>{product.name} &rarr;</h2>
                                 <p>{product.description}.</p>
