@@ -1,9 +1,14 @@
 version: '3.1'
 
 services:
-  website:
-    build:
-      context: .
-      dockerfile: Dockerfile
+  www-stub:
+    image: www-stub
+    build: .
     ports:
         - "3000:3000"
+    networks:
+      - homedock
+
+homedock:
+  external:
+    true
