@@ -67,6 +67,7 @@ export default {
     },
 
     forPage(id) {
+        if (!this.PRODUCTS[id]) return undefined;
         return {
             Company: this.Company,
             Product: this.PRODUCTS[id],
