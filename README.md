@@ -1,3 +1,3 @@
-# smyers.net
+# Simple Sites
 
- * We help people
+ * This site is for simple sites.

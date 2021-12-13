@@ -9,56 +9,46 @@ import Card from '../components/Card';
 
 import styles from '../styles/Home.module.scss'
 
+const BRAND_LEFT = 'b-street';
+const BRAND_RIGHT = '.build';
+
+import SITE from '../sitemap'
+
 export default function Home() {
     return (
         <Container>
             <Head>
-                <title>Smyers</title>
+                <title>{SITE.Company.fqdn}</title>
                 <link rel="icon" href="/favicon.ico"/>
                 <meta name="color-scheme" content="dark"/>
                 <meta
                     name="description"
-                    content="Smyers" />
+                    content={SITE.Company.description} />
             </Head>
 
             <Main>
                 <h1 className={styles.title}>
-                    <a className="test" href="https://www.smyers.net">Smyers</a> Family
+                    <a className="gradient" href={`https://www.${SITE.Company.fqdn}`}>{BRAND_LEFT}</a> {BRAND_RIGHT}
                 </h1>
 
                 <p className={styles.description}>
-                    We help people
-                    {/*<code>smyers/index.js</code>*/}
+                    {SITE.Company.slogan}.
                 </p>
 
             <Grid className={"cards"}>
-                <Link href="/mike-smyers">
-                        <Card>
-                            <h2>Mike &rarr;</h2>
-                            <p>Engineer.</p>
-                        </Card>
-                    </Link>
 
-                    <Link href="/robin-smyers">
-                        <Card>
-                            <h2>Robin &rarr;</h2>
-                            <p>Pastor.</p>
-                        </Card>
-                    </Link>
+                {
+                    Object.keys(SITE.PRODUCTS).map((productName) => {
+                        const product = SITE.PRODUCTS[productName];
+                        return <Link href={product.page.href}>
+                            <Card>
+                                <h2>{product.name} &rarr;</h2>
+                                <p>{product.description}.</p>
+                            </Card>
+                        </Link>
+                    })
+                }
 
-                    <Link href="/michael-smyers">
-                        <Card>
-                            <h2>Michael &rarr;</h2>
-                            <p>Entrepreneur.</p>
-                        </Card>
-                    </Link>
-
-                    <Link href="/cassandra-smyers">
-                        <Card>
-                            <h2>Cassandra &rarr;</h2>
-                            <p>Educator.</p>
-                        </Card>
-                    </Link>
                 </Grid>
             </Main>
 
